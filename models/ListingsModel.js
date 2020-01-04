@@ -8,6 +8,10 @@ const listingSchema = new mongoose.Schema({
   "status": {
     type: String,
     required: true
+  },
+  "producturl": {
+    type: String,
+    required: false
   }
 });
 
