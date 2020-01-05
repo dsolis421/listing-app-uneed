@@ -1,8 +1,8 @@
-import express from 'express';
-import listingController from '../controllers/listingController';
+var express = require('express');
+const listingController = require('../controllers/listingController');
 
-const router = express.router();
+const router = express.Router();
 
-router.get('/', listingController.getFullList);
+router.get('/api/needlist', listingController.getFullList);
 
-export default router;
+module.exports = router;

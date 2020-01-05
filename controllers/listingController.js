@@ -1,11 +1,25 @@
-import listing from '../models/ListingsModel';
+var mongoose = require('mongoose');
+const listings = mongoose.model('uneedlistings');
 
-const listingController = {};
-
-listingController.getFullList = (request, response, next) => {
-  ListingsModel.find().exec()
-  .then(game => response.json(list))
-  .catch(err => next(err));
+exports.getFullList = (req, resp, next) => {
+  listings.find().exec()
+  .then(list => {
+    console.log('ListingModel list: ', list);
+    //resp.json(list);
+    return resp.status(200).send(list);
+  })
+  /*.then(() => {
+    var list = [];
+    var item = {};
+    item._id = 123;
+    item.name = "Hard Coded Name";
+    item.status = "Status F";
+    item.url = "www.url.com";
+    list.push(item);
+    return resp.status(200).send(list);
+  })*/
+  .catch(err => {
+    console.log('controller error: ', err);
+    next(err);
+  })
 };
-
-export default listingController;

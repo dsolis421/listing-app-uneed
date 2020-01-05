@@ -15,6 +15,11 @@ mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true, useUnifiedTopo
 
 app.use(bodyParser.json());
 
+//routes
+var listingRoutes = require('./routes/listingRoutes');
+
+app.use(listingRoutes);
+
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
 

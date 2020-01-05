@@ -13,13 +13,13 @@ class ListItem extends Component {
         <div>
           <GotItButton/>
         </div>
-        <span className="product-status">Status</span>
-        <p>Here's something I need</p>
+        <span className="product-status">{this.props.status}</span>
+        <p>{this.props.name}</p>
         <br/>
         <span className="product-anchor">
           <i className="fal fa-link"></i>
         </span>
-        <a href="/">Product Anchor</a>
+        <a href="/">{this.props.producturl}</a>
       </div>
     );
   }

@@ -15,4 +15,4 @@ const listingSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('listings', listingSchema);
+module.exports = mongoose.model('uneedlistings', listingSchema);
