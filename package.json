@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "client": "npm run start --prefix client",
-    "dev": "concurrently --kill-other-on-fail \"npm run server\" \"npm run client\"",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon index.js",
     "start": "node index.js"
@@ -22,5 +22,6 @@
   "devDependencies": {
     "concurrently": "^5.0.2",
     "nodemon": "^2.0.2"
-  }
+  },
+  "proxy": "http://localhost:5000/"
 }

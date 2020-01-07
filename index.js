@@ -5,8 +5,10 @@ const bodyParser = require('body-parser');
 
 /*Models*/
 require('./models/ListingsModel');
+//routes
+var listingRoutes = require('./routes/listingRoutes');
 
-const app = express();
+var app = express();
 
 mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true, useUnifiedTopology: true})
@@ -14,9 +16,7 @@ mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true, useUnifiedTopo
   .catch(err => console.log("[MONGOOSE] FAILED to connect --> " + err));
 
 app.use(bodyParser.json());
-
-//routes
-var listingRoutes = require('./routes/listingRoutes');
+app.use(bodyParser.urlencoded({extended: false}));
 
 app.use(listingRoutes);
 

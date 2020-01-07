@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import GotItButton from './GotItButton';
-import SampleDeleteButton from './SampleDeleteButton';
 import '../style/ListItem.css';
 
 class ListItem extends Component {
@@ -8,10 +6,14 @@ class ListItem extends Component {
     return (
       <div className="list-item">
         <div>
-          <SampleDeleteButton/>
+          <span className="delete-button" onClick={() => this.props.deleteItem(this.props.id)}>
+            <i className="fas fa-minus-hexagon"></i>
+          </span>
         </div>
         <div>
-          <GotItButton/>
+          <span className="add-button">
+            <i className="fas fa-file-check"></i>
+          </span>
         </div>
         <span className="product-status">{this.props.status}</span>
         <p>{this.props.name}</p>
@@ -19,7 +21,7 @@ class ListItem extends Component {
         <span className="product-anchor">
           <i className="fal fa-link"></i>
         </span>
-        <a href="/">{this.props.producturl}</a>
+        <a href={this.props.producturl} target="_blank">{this.props.producturl}</a>
       </div>
     );
   }
